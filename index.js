@@ -1,3 +1,4 @@
+// index.js
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
@@ -5,19 +6,24 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const methodOverride = require("method-override");
 
+// Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+
+app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+// Dummy posts data
 let posts = [
   { id: uuidv4(), username: "apnacollege", content: "I love coding" },
   { id: uuidv4(), username: "shraddhakhapra", content: "Hard work is important" },
   { id: uuidv4(), username: "rahul", content: "I got selected" },
 ];
 
-// Home route redirects to /posts
+// Routes
+
+// Redirect root to /posts
 app.get("/", (req, res) => {
   res.redirect("/posts");
 });
@@ -27,7 +33,7 @@ app.get("/posts", (req, res) => {
   res.render("index.ejs", { posts });
 });
 
-// NEW - Show form to create new post
+// NEW - Form to create a new post
 app.get("/posts/new", (req, res) => {
   res.render("new.ejs");
 });
@@ -39,7 +45,7 @@ app.post("/posts", (req, res) => {
   res.redirect("/posts");
 });
 
-// SHOW - Show specific post
+// SHOW - Display a single post
 app.get("/posts/:id", (req, res) => {
   const { id } = req.params;
   const post = posts.find((p) => p.id === id);
@@ -53,19 +59,12 @@ app.get("/posts/:id/edit", (req, res) => {
   res.render("edit.ejs", { post });
 });
 
-// UPDATE - Patch request to update post content
+// UPDATE - Modify a post
 app.patch("/posts/:id", (req, res) => {
   const { id } = req.params;
   const newContent = req.body.content;
   const post = posts.find((p) => p.id === id);
   post.content = newContent;
-  res.redirect("/posts");
-});
-
-// DELETE - Delete a post
-app.delete("/posts/:id", (req, res) => {
-  const { id } = req.params;
-  posts = posts.filter((p) => p.id !== id);
   res.redirect("/posts");
 });
 
@@ -76,7 +75,14 @@ app.get("/posts/:id/delete", (req, res) => {
   res.render("delete.ejs", { post });
 });
 
-// Start server
+// DELETE - Remove a post
+app.delete("/posts/:id", (req, res) => {
+  const { id } = req.params;
+  posts = posts.filter((p) => p.id !== id);
+  res.redirect("/posts");
+});
+
+// Server listen
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
