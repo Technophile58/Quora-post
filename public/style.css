@@ -1,0 +1,72 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #d62828;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.post {
+    background-color: #fff3e6;
+    border: 1px solid #ffd6a5;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.username {
+    font-style: italic;
+    color: #264653;
+    margin-bottom: 10px;
+}
+
+.content {
+    font-weight: normal;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+a {
+    margin-right: 15px;
+    color: #0077b6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #023e8a;
+}
+
+a[href*="new"] {
+    display: block;
+    width: fit-content;
+    background-color: #2a9d8f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 30px auto 0;
+    text-align: center;
+}
+
+a[href*="new"]:hover {
+    background-color: #21867a;
+}
+footer {
+    margin-top: 60px;
+    padding: 20px;
+    text-align: center;
+    background-color: #ffe8cc;
+    color: #6c757d;
+    font-size: 16px;
+    border-top: 1px solid #ffd6a5;
+    border-radius: 10px;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+}

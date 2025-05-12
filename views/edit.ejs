@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create new post</title>
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fafafa;
+    padding: 30px;
+    text-align: center;
+}
+
+h2 {
+    color: #2c3e50;
+}
+
+p {
+    color: #555;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+form {
+    display: inline-block;
+    background-color: #ffe4c4;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+textarea {
+    width: 100%;
+    max-width: 400px;
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+    </style>
+</head>
+<body>
+    <h2>Edit your post</h2>
+    <p>post id:<%= post.id%></p>
+    <p>post username:<%= post.username%></p>
+    <form action="/posts/<%= post.id %>?_method=PATCH" method="POST">
+            <textarea name="content" id="" rows="10" cols="25">
+        <%=post.content%>
+    </textarea>
+    <button>Submit</button>
+ </form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #fefefe;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.post {
+    background-color: #ffe4c4;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.username {
+    font-style: italic;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.content {
+    font-size: 18px;
+    color: #444;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+}
+
+    </style>
+</head>
+<body>
+    <% if (post) { %>
+        <h2>Here is your post in detail</h2>
+        <p>ID: <%= post.id %></p>
+        <div class="post">
+            <h3 class="username">@<%= post.username %></h3>
+            <h4 class="content"><%= post.content %></h4>
+        </div>
+    <% } else { %>
+        <h2>Post Not Found</h2>
+    <% } %>
+</body>
+</html>
