@@ -16,8 +16,8 @@ app.set("views", path.join(__dirname, "views"));
 
 // Dummy posts data
 let posts = [
-  { id: uuidv4(), username: "apnacollege", content: "I love coding" },
-  { id: uuidv4(), username: "shraddhakhapra", content: "Hard work is important" },
+  { id: uuidv4(), username: "Shivam", content: "I love coding" },
+  { id: uuidv4(), username: "Ankit", content: "Hard work is important" },
   { id: uuidv4(), username: "rahul", content: "I got selected" },
 ];
 
